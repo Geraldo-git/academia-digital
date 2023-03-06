@@ -3,9 +3,9 @@ package dio.com.academia.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import dio.com.academia.entities.AvaliacaoFisica;
+import dio.com.academia.entities.Matricula;
 
 @Repository
-public interface MatriculaRepository extends JpaRepository<AvaliacaoFisica, Long>{
+public interface MatriculaRepository extends JpaRepository<Matricula, Long>{
 
 }

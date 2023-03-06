@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +36,7 @@ public class Aluno {
 
 	private LocalDate dataDeNascimento;
 
-	@OneToMany(mappedBy = "aluno",  fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<AvaliacaoFisica> avaliacoes = new ArrayList<>();
 	
