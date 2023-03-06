@@ -1,0 +1,5 @@
+package dio.com.academia.repositories;
+
+public class AlunoRepository {
+
+}
