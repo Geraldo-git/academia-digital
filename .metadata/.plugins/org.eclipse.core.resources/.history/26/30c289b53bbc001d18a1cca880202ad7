@@ -1,0 +1,11 @@
+server.port=8080
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/ecommerce
+
+spring.datasource.username=postgres
+
+spring.datasource.password=1234567
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL82Dialect
+
+spring.jpa.hibernate.ddl-auto=create
