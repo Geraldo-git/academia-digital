@@ -1,0 +1,5 @@
+package dio.com.academia.DTO.errors;
+
+public class CustomError {
+
+}
