@@ -1,0 +1,5 @@
+package dio.com.academia.services.exceptions;
+
+public class DatabaseException {
+
+}

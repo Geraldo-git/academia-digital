@@ -1,7 +1,6 @@
 package dio.com.academia.controllers;
 
 import java.net.URI;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,39 +23,38 @@ import dio.com.academia.services.AlunoService;
 @RequestMapping(value = "/alunos")
 public class AlunoController {
 
-	 @Autowired
-	    private AlunoService service;
+	@Autowired
+	private AlunoService service;
 
-	    @GetMapping
-	    public ResponseEntity<Page<AlunoDTO>> findAll(Pageable pageable) {
-	        Page<AlunoDTO> list = service.findAll(pageable);
-	        return ResponseEntity.ok().body(list);
-	    }
+	@GetMapping
+	public ResponseEntity<Page<AlunoDTO>> findAll(Pageable pageable) {
+		Page<AlunoDTO> list = service.findAll(pageable);
+		return ResponseEntity.ok().body(list);
+	}
 
-	    @GetMapping(value = "/{id}")
-	    public ResponseEntity<AlunoDTO> findById(@PathVariable Long id) {
-	        AlunoDTO dto = service.findById(id);
-	        return ResponseEntity.ok().body(dto);
-	    }
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<AlunoDTO> findById(@PathVariable Long id) {
+		AlunoDTO dto = service.findById(id);
+		return ResponseEntity.ok().body(dto);
+	}
 
-	    @PostMapping
-	    public ResponseEntity<AlunoDTO> create(@RequestBody AlunoDTO dto) {
-	        dto = service.insert(dto);
-	        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-	                .buildAndExpand(dto.getId()).toUri();
-	        return ResponseEntity.created(uri).body(dto);
-	    }
+	@PostMapping
+	public ResponseEntity<AlunoDTO> create(@RequestBody AlunoDTO dto) {
+		dto = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+		return ResponseEntity.created(uri).body(dto);
+	}
 
-	    @PutMapping(value = "/{id}")
-	    public ResponseEntity<AlunoDTO> update(@PathVariable Long id, @RequestBody AlunoDTO dto) {
-	        dto = service.update(id, dto);
-	        return ResponseEntity.ok(dto);
-	    }
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<AlunoDTO> update(@PathVariable Long id, @RequestBody AlunoDTO dto) {
+		dto = service.update(id, dto);
+		return ResponseEntity.ok(dto);
+	}
 
-	    /*@DeleteMapping(value = "/{id}")
-	    ResponseEntity<Void> delete(@PathVariable Long id) {
-	        service.delete(id);
-	        return ResponseEntity.noContent().build();
+	@DeleteMapping(value = "/{id}")
+	ResponseEntity<Void> delete(@PathVariable Long id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
 
-	    }*/
+	}
 }

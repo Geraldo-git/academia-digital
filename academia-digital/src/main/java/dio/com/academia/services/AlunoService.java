@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import dio.com.academia.DTO.AlunoDTO;
 import dio.com.academia.entities.Aluno;
 import dio.com.academia.repositories.AlunoRepository;
+import dio.com.academia.services.exceptions.DatabaseException;
 import dio.com.academia.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -59,7 +60,7 @@ public class AlunoService {
         }
     }
 
-   /* @Transactional(propagation = Propagation.SUPPORTS)
+   @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         try {
             repository.deleteById(id);
@@ -68,7 +69,7 @@ public class AlunoService {
         } catch (DataIntegrityViolationException e) {
             throw new DatabaseException("Violação de integridade!");
         }
-    }*/
+    }
 
 
     private void copyDtoToEntity(AlunoDTO dto, Aluno entity) {
